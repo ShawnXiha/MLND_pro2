@@ -11800,7 +11800,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 载入所需要的库</span>
@@ -11852,7 +11852,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span>
@@ -11860,7 +11860,8 @@ div#notebook {
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">rows</span>
 
 <span class="c1"># TODO： 计算特征数量</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">columns</span>
+<span class="c1"># 除去最后一列均为特征</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">columns</span><span class="o">-</span><span class="mi">1</span>
 
 <span class="c1"># TODO： 计算通过的学生数</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">passed</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">)</span>
@@ -11890,7 +11891,7 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
 Graduation rate of the class: 67.09%
@@ -11916,7 +11917,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 提取特征列</span>
@@ -11998,7 +11999,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12069,7 +12070,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：在这里导入你可能需要使用的另外的功能</span>
@@ -12254,7 +12255,7 @@ Logistic回归的扩展softmax可以应用于多分类领域，如手写字识�
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12338,7 +12339,7 @@ Logistic回归的扩展softmax可以应用于多分类领域，如手写字识�
 <span class="c1"># TODO：初始化三个模型</span>
 <span class="n">clf_A</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
 <span class="n">clf_B</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-<span class="n">clf_C</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
 
 <span class="c1"># TODO：设置训练集大小</span>
 <span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
@@ -12380,58 +12381,58 @@ Logistic回归的扩展softmax可以应用于多分类领域，如手写字识�
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a SVC using a training set size of 100. . .
-Trained model in 0.0022 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0033 seconds
+Made predictions in 0.0019 seconds.
 F1 score for training set: 0.8591.
-Made predictions in 0.0009 seconds.
+Made predictions in 0.0016 seconds.
 F1 score for test set: 0.7838.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0039 seconds
-Made predictions in 0.0029 seconds.
+Trained model in 0.0071 seconds
+Made predictions in 0.0052 seconds.
 F1 score for training set: 0.8693.
-Made predictions in 0.0013 seconds.
+Made predictions in 0.0014 seconds.
 F1 score for test set: 0.7755.
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0095 seconds
-Made predictions in 0.0078 seconds.
+Trained model in 0.0089 seconds
+Made predictions in 0.0074 seconds.
 F1 score for training set: 0.8692.
-Made predictions in 0.0032 seconds.
+Made predictions in 0.0018 seconds.
 F1 score for test set: 0.7586.
 Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.0027 seconds
-Made predictions in 0.0004 seconds.
+Trained model in 0.0009 seconds
+Made predictions in 0.0001 seconds.
 F1 score for training set: 0.8571.
-Made predictions in 0.0002 seconds.
+Made predictions in 0.0001 seconds.
 F1 score for test set: 0.7612.
 Training a LogisticRegression using a training set size of 200. . .
-Trained model in 0.0019 seconds
-Made predictions in 0.0195 seconds.
+Trained model in 0.0018 seconds
+Made predictions in 0.0002 seconds.
 F1 score for training set: 0.8380.
 Made predictions in 0.0002 seconds.
 F1 score for test set: 0.7794.
 Training a LogisticRegression using a training set size of 300. . .
-Trained model in 0.0030 seconds
-Made predictions in 0.0003 seconds.
+Trained model in 0.0039 seconds
+Made predictions in 0.0020 seconds.
 F1 score for training set: 0.8381.
-Made predictions in 0.0001 seconds.
+Made predictions in 0.0005 seconds.
 F1 score for test set: 0.7910.
 Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0009 seconds
+Trained model in 0.0011 seconds
 Made predictions in 0.0002 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0003 seconds.
-F1 score for test set: 0.6942.
+Made predictions in 0.0002 seconds.
+F1 score for test set: 0.7018.
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0015 seconds
+Trained model in 0.0019 seconds
 Made predictions in 0.0002 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0001 seconds.
-F1 score for test set: 0.7132.
+Made predictions in 0.0002 seconds.
+F1 score for test set: 0.7634.
 Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0018 seconds
-Made predictions in 0.0002 seconds.
+Trained model in 0.0028 seconds
+Made predictions in 0.0003 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0001 seconds.
+Made predictions in 0.0002 seconds.
 F1 score for test set: 0.7167.
 </pre>
 </div>
@@ -12608,6 +12609,11 @@ F1 score for test set: 0.7167.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答: </strong></p>
+<p>逻辑回归通常用于解决二元分类问题，如挂课还是没挂课，方案通过还不通过。我们将结果标记为0（也就是负类），1也就是（正类）
+为了分开0,1。线性回归模型产生的预测值是
+<strong>"z = w0 + w1<em>X1 + w2</em>X2 + w3*X3 + ...",</strong></p>
+<p>他的取值范围是正无穷到负无穷。为了把z转换成0/1值，我们使用一个Sigmiod函数（具体是什么暂时别管）替代它，它将z值转化为接近0或者1的y值。
+有了预测值y，和实际值，我们就可以得到衡量预测与实际的偏离程度的损失函数，如何求解使得损失函数最小的w们就得到了所需要的分类器了。</p>
 
 </div>
 </div>
@@ -12638,20 +12644,21 @@ F1 score for test set: 0.7167.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: 导入 &#39;GridSearchCV&#39; 和 &#39;make_scorer&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedShuffleSplit</span>
 <span class="c1"># TODO：创建你希望调整的参数列表</span>
-<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>  <span class="s2">&quot;C&quot;</span><span class="p">:[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">20</span><span class="p">],</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>  <span class="s2">&quot;C&quot;</span><span class="p">:[</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">20</span><span class="p">],</span>
                 <span class="s2">&quot;tol&quot;</span><span class="p">:[</span><span class="mi">10</span><span class="o">**-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">20</span><span class="p">],</span>
-                <span class="s2">&quot;solver&quot;</span> <span class="p">:[</span><span class="s1">&#39;newton-cg&#39;</span><span class="p">,</span> <span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="s1">&#39;sag&#39;</span><span class="p">]</span>
+                <span class="s2">&quot;solver&quot;</span> <span class="p">:[</span> <span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="s1">&#39;sag&#39;</span><span class="p">]</span>
              <span class="p">}</span>
 
 <span class="c1"># TODO：初始化分类器</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># TODO：用&#39;make_scorer&#39;创建一个f1评分函数</span>
 <span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">truth</span><span class="p">,</span><span class="n">pred</span><span class="p">):</span>
@@ -12659,7 +12666,8 @@ F1 score for test set: 0.7167.
 <span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">greater_is_better</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># TODO：在分类器上使用f1_scorer作为评分函数运行网格搜索</span>
-<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">)</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">)</span>
 
 <span class="c1"># TODO: Fit the grid search object to the training data and find the optimal parameters</span>
 <span class="c1"># TODO：用训练集训练grid search object来寻找最佳参数</span>
@@ -12685,10 +12693,10 @@ F1 score for test set: 0.7167.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0002 seconds.
-Tuned model has a training F1 score of 0.8240.
-Made predictions in 0.0002 seconds.
-Tuned model has a testing F1 score of 0.7755.
+<pre>Made predictions in 0.0003 seconds.
+Tuned model has a training F1 score of 0.8261.
+Made predictions in 0.0003 seconds.
+Tuned model has a testing F1 score of 0.7971.
 </pre>
 </div>
 </div>
@@ -12712,7 +12720,7 @@ Tuned model has a testing F1 score of 0.7755.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答: 0.7755,变小了</strong></p>
+<p><strong>回答: 0.7971,比起调参之前的0.7910略有提高。</strong></p>
 
 </div>
 </div>
